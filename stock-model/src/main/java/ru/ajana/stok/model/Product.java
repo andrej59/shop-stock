@@ -2,6 +2,8 @@ package ru.ajana.stok.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 /**
  * Продукт магазина.
@@ -11,10 +13,16 @@ import java.math.BigDecimal;
 public class Product implements Serializable {
 
   private Long id;
+  @NotNull
   private String name;
+  @NotNull
   private BigDecimal price;
   private String description;
+  @NotNull
+  @Valid
   private ProductStatus status;
+  @NotNull
+  @Valid
   private ProductType productType;
 
   public Long getId() {

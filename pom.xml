@@ -18,6 +18,7 @@
   <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <jpa.version>2.1.1</jpa.version>
     <javaee.version>7.0</javaee.version>
     <resteasy.version>3.5.1.Final</resteasy.version>
@@ -31,6 +32,7 @@
     <log4j.version>1.2.17</log4j.version>
     <logback.version>1.2.3</logback.version>
     <junit.version>4.12</junit.version>
+    <wildfly-embedded.version>5.0.0.Final</wildfly-embedded.version>
 
     <!-- plugins -->
     <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
@@ -127,6 +129,14 @@
 
       <dependency>
         <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-bom</artifactId>
+        <version>${resteasy.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
         <artifactId>jaxrs-api</artifactId>
         <version>3.0.12.Final</version>
       </dependency>
@@ -139,13 +149,13 @@
 
       <dependency>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-client</artifactId>
+        <artifactId>resteasy-validator-provider-11</artifactId>
         <version>${resteasy.version}</version>
       </dependency>
 
       <dependency>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-jaxb-provider</artifactId>
+        <artifactId>resteasy-client</artifactId>
         <version>${resteasy.version}</version>
       </dependency>
 
@@ -155,11 +165,21 @@
         <version>${resteasy.version}</version>
       </dependency>
 
+      <!--
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-jaxb-provider</artifactId>
+        <version>${resteasy.version}</version>
+      </dependency>
+      -->
+
+      <!--
       <dependency>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-validator-provider-11</artifactId>
         <version>${resteasy.version}</version>
       </dependency>
+      -->
 
       <!-- LOGGING -->
 
@@ -274,6 +294,14 @@
 
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+          </configuration>
           <version>${maven-war-plugin.version}</version>
         </plugin>
 

@@ -11,6 +11,7 @@
 
   <packaging>war</packaging>
   <artifactId>stock-view</artifactId>
+
   <dependencies>
     <!-- PROJECT -->
     <dependency>
@@ -143,6 +144,12 @@
     <!-- TESTING -->
 
     <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
       <groupId>org.jboss.resteasy</groupId>
       <artifactId>resteasy-client</artifactId>
       <scope>test</scope>
@@ -155,43 +162,18 @@
     </dependency>
 
 
-
-    <!--
-
-            <dependency>
-              <groupId>org.jboss.resteasy</groupId>
-              <artifactId>resteasy-jaxrs</artifactId>
-              <scope>test</scope>
-            </dependency>
-
-            <dependency>
-              <groupId>org.jboss.resteasy</groupId>
-              <artifactId>resteasy-jaxb-provider</artifactId>
-              <scope>test</scope>
-            </dependency>
-
-    -->
-
-    <!--
     <dependency>
       <groupId>org.wildfly.core</groupId>
       <artifactId>wildfly-embedded</artifactId>
-      <version>4.0.0.Final</version>
-      <scope>provided</scope>
+      <version>${wildfly-embedded.version}</version>
+      <scope>test</scope>
     </dependency>
-    -->
+
     <dependency>
       <groupId>com.namics.oss</groupId>
       <artifactId>java-random</artifactId>
       <scope>test</scope>
     </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
-
 
     <!--
     <dependency>
@@ -229,6 +211,13 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <argLine>-Dfile.encoding=UTF-8</argLine>
+          <!--
+          <systemPropertyVariables>
+            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+            <jboss.home>${wildfly.home}</jboss.home>
+            <module.path>${wildfly.home}/modules</module.path>
+          </systemPropertyVariables>
+          -->
         </configuration>
       </plugin>
 
@@ -236,6 +225,13 @@
         <artifactId>maven-failsafe-plugin</artifactId>
         <configuration>
           <encoding>UTF-8</encoding>
+          <!--
+          <systemPropertyVariables>
+            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+            <jboss.home>${wildfly.home}</jboss.home>
+            <module.path>${wildfly.home}/modules</module.path>
+          </systemPropertyVariables>
+          -->
         </configuration>
         <executions>
           <execution>

@@ -1,5 +1,8 @@
 package ru.ajana.stok.model;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 /**
  * Одежда магазина.
  *
@@ -7,8 +10,12 @@ package ru.ajana.stok.model;
  */
 public class Tog extends Product {
 
+  @NotNull
   private Color color;
+  @NotNull(message = "{tog.size.notnull}")
   private Integer size;
+  @NotNull
+  @Valid
   private TogKing kind;
 
   public Color getColor() {

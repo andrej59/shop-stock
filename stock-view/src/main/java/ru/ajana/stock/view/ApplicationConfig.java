@@ -8,15 +8,16 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import ru.ajana.stock.view.controller.rest.TogController;
-import ru.ajana.stock.view.exception.ValidationExceptionMapper;
-import ru.ajana.stock.view.exception.WebApplicationExceptionMapper;
+import ru.ajana.stock.view.exception.mapper.DebugValidationExceptionMapper;
+import ru.ajana.stock.view.exception.mapper.ValidationExceptionMapper;
+import ru.ajana.stock.view.locale.AcceptLanguageRequestFilter;
 
 /**
  * Конфигурация REST-сервисов.
  *
  * @author Andrey Kharintsev on 13.04.2018
  */
-@ApplicationPath("rest")
+@ApplicationPath("service/rest")
 public class ApplicationConfig extends Application {
 
   private final Set<Class<?>> classes;
@@ -24,9 +25,13 @@ public class ApplicationConfig extends Application {
   public ApplicationConfig() {
     HashSet<Class<?>> c = new HashSet<>();
     c.add(TogController.class);
-    //c.add(ResteasyViolationExceptionMapper.class);
-    c.add(WebApplicationExceptionMapper.class);
-    c.add(ValidationExceptionMapper.class);
+    c.add(AcceptLanguageRequestFilter.class);
+    c.add(ValidationConfigurationContextResolver.class);
+    c.add(DebugValidationExceptionMapper.class);
+    //c.add(GeneralValidatorCDI.class);
+    //c.add(ValidationExceptionMapper.class);
+    //c.add(WebApplicationExceptionMapper.class);
+    //c.add(ValidationExceptionMapper.class);
     //c.add(MOXyJsonProvider.class);
     classes = Collections.unmodifiableSet(c);
   }
