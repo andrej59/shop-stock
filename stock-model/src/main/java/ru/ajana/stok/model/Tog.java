@@ -2,6 +2,7 @@ package ru.ajana.stok.model;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Range;
 
 /**
  * Одежда магазина.
@@ -10,11 +11,15 @@ import javax.validation.constraints.NotNull;
  */
 public class Tog extends Product {
 
-  @NotNull
-  private Color color;
-  @NotNull(message = "{tog.size.notnull}")
+  @Range(min = 42, max = 52, message = "{ru.ajana.stock.model.tog.range}")
+  @NotNull(message = "{ru.ajana.stock.model.tog.size.notnull}")
   private Integer size;
-  @NotNull
+
+  @NotNull(message = "ru.ajana.stock.model.tog.color.notnull")
+  @Valid
+  private Color color;
+
+  @NotNull(message = "ru.ajana.stock.model.tog.kind.notnull")
   @Valid
   private TogKing kind;
 

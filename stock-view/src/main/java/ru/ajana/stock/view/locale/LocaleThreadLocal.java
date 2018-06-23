@@ -13,7 +13,7 @@ public class LocaleThreadLocal {
   public static final ThreadLocal<Locale> THREAD_LOCAL = new ThreadLocal<>();
 
   public static Locale get() {
-    return (THREAD_LOCAL.get() == null) ? Locale.getDefault() : THREAD_LOCAL.get();
+    return (THREAD_LOCAL.get() == null) ? Locale.ENGLISH : THREAD_LOCAL.get();
   }
 
   public static void set(Locale locale) {

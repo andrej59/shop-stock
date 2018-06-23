@@ -18,7 +18,7 @@ public class ColorMapper implements ToMapper<SpColorEntity, Color> {
     Color color = new Color();
     color.setId(entity.getId());
     color.setName(entity.getName());
-    color.setIdent(entity.getIdent());
+    color.setCode(entity.getIdent());
     return color;
   }
 }

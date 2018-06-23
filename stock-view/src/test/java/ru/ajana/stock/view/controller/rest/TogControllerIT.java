@@ -33,6 +33,7 @@ public class TogControllerIT {
       .register(JacksonJsonProvider.class)
       .build();
 
+
   @Before
   public void setUp() {
     ObjectMapper mapper = new ObjectMapper();
@@ -42,13 +43,13 @@ public class TogControllerIT {
   @Test
   public void testInvalidTog() {
     Tog expectedTog = ProductGenerator.createProduct();
-    expectedTog.setName(null);
+    //expectedTog.setName(null);
     expectedTog.setSize(null);
     // Посылаем продукт методом POST
     Response response = client.target(uri)
         .path("/validate")
         .request(MediaType.APPLICATION_JSON)
-        .header("Accept-Language", "ru")
+        //.header("Accept-Language", "en")
         .post(Entity.entity(expectedTog, MediaType.APPLICATION_JSON));
     response.bufferEntity();
     logResponse("testInvalidTog", response);

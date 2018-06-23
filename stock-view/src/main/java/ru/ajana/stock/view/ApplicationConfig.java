@@ -9,7 +9,6 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import ru.ajana.stock.view.controller.rest.TogController;
 import ru.ajana.stock.view.exception.mapper.DebugValidationExceptionMapper;
-import ru.ajana.stock.view.exception.mapper.ValidationExceptionMapper;
 import ru.ajana.stock.view.locale.AcceptLanguageRequestFilter;
 
 /**

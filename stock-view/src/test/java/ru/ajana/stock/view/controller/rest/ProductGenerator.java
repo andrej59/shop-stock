@@ -33,7 +33,7 @@ public class ProductGenerator {
     Color color = new Color();
     color.setId(ColorEnums.WHITE.getId().longValue());
     color.setName(ColorEnums.WHITE.getValue());
-    color.setIdent(ColorEnums.WHITE.name());
+    color.setCode(ColorEnums.WHITE.name());
     tog.setColor(color);
     // Вид одежды
     TogKing togKing = new TogKing();

@@ -1,22 +1,22 @@
 --
 -- Data for table stock.sp_color (OID = 115769) (LIMIT 0,5)
 --
-INSERT INTO sp_color (id, name, ident) VALUES (1, 'Белый', 'WHITE');
+INSERT INTO sp_color (id, name, code) VALUES (1, 'Белый', 'WHITE');
 
-INSERT INTO sp_color (id, name, ident) VALUES (2, 'Cиний', 'BLUE');
+INSERT INTO sp_color (id, name, code) VALUES (2, 'Cиний', 'BLUE');
 
-INSERT INTO sp_color (id, name, ident) VALUES (3, 'Красный', 'RED');
+INSERT INTO sp_color (id, name, code) VALUES (3, 'Красный', 'RED');
 
-INSERT INTO sp_color (id, name, ident) VALUES (4, 'Зелёный', 'GREEN');
+INSERT INTO sp_color (id, name, code) VALUES (4, 'Зелёный', 'GREEN');
 
-INSERT INTO sp_color (id, name, ident) VALUES (5, 'Чёрный', 'BLACK');
+INSERT INTO sp_color (id, name, code) VALUES (5, 'Чёрный', 'BLACK');
 
 --
 -- Data for table stock.sp_product_status (OID = 115776) (LIMIT 0,2)
 --
-INSERT INTO sp_product_status (id, name, ident) VALUES (1, 'Магазин', 'SHOP');
+INSERT INTO sp_product_status (id, name, code) VALUES (1, 'Магазин', 'SHOP');
 
-INSERT INTO sp_product_status (id, name, ident) VALUES (2, 'Склад', 'STOCK');
+INSERT INTO sp_product_status (id, name, code) VALUES (2, 'Склад', 'STOCK');
 
 --
 -- Data for table stock.sp_product_type (OID = 115783) (LIMIT 0,1)

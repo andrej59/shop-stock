@@ -1,6 +1,7 @@
 package ru.ajana.stok.model;
 
 import java.io.Serializable;
+import javax.validation.constraints.NotNull;
 
 /**
  * Вид одежды магазина.
@@ -9,7 +10,9 @@ import java.io.Serializable;
  */
 public class TogKing implements Serializable {
 
+  @NotNull(message = "{ru.ajana.stok.model.togking.id.notnull}")
   private Long id;
+  @NotNull(message = "{ru.ajana.stok.model.togking.name.notnull}")
   private String name;
 
   public Long getId() {

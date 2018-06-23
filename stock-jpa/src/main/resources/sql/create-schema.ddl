@@ -20,7 +20,7 @@ comment on column PRODUCT.DESCRIPTION is 'Описание продукта';
 /*==============================================================*/
 /* Table: SP_COLOR                                              */
 /*==============================================================*/
-create table SP_COLOR (ID NUMERIC(12) not null, NAME VARCHAR(128) not null, IDENT VARCHAR(32) not null, constraint PK_SP_COLOR primary key (ID), constraint UK1_SP_COLOR unique (IDENT));
+create table SP_COLOR (ID NUMERIC(12) not null, NAME VARCHAR(128) not null, CODE VARCHAR(32) not null, constraint PK_SP_COLOR primary key (ID), constraint UK1_SP_COLOR unique (CODE));
 
 comment on table SP_COLOR is 'Справочник цвета';
 
@@ -28,12 +28,12 @@ comment on column SP_COLOR.ID is 'Идентификатор цвета';
 
 comment on column SP_COLOR.NAME is 'Наименование цвета';
 
-comment on column SP_COLOR.IDENT is 'Строковый идентификатор цвета';
+comment on column SP_COLOR.CODE is 'Строковый идентификатор цвета';
 
 /*==============================================================*/
 /* Table: SP_PRODUCT_STATUS                                     */
 /*==============================================================*/
-create table SP_PRODUCT_STATUS (ID NUMERIC(12) not null, NAME VARCHAR(64) not null, IDENT VARCHAR(32) not null, constraint PK_SP_PRODUCT_STATUS primary key (ID), constraint UK1_SP_PRODUCT_STATUS unique (IDENT));
+create table SP_PRODUCT_STATUS (ID NUMERIC(12) not null, NAME VARCHAR(64) not null, CODE VARCHAR(32) not null, constraint PK_SP_PRODUCT_STATUS primary key (ID), constraint UK1_SP_PRODUCT_STATUS unique (CODE));
 
 comment on table SP_PRODUCT_STATUS is 'Статус продукта';
 
@@ -41,7 +41,7 @@ comment on column SP_PRODUCT_STATUS.ID is 'Идентификатор';
 
 comment on column SP_PRODUCT_STATUS.NAME is 'Наименование статуса';
 
-comment on column SP_PRODUCT_STATUS.IDENT is 'Строковый идентификатор статуса';
+comment on column SP_PRODUCT_STATUS.CODE is 'Строковый идентификатор статуса';
 
 /*==============================================================*/
 /* Table: SP_PRODUCT_TYPE                                       */
