@@ -10,9 +10,9 @@ import javax.validation.constraints.NotNull;
  */
 public class TogKing implements Serializable {
 
-  @NotNull(message = "{ru.ajana.stok.model.togking.id.notnull}")
+  @NotNull
   private Long id;
-  @NotNull(message = "{ru.ajana.stok.model.togking.name.notnull}")
+  @NotNull
   private String name;
 
   public Long getId() {

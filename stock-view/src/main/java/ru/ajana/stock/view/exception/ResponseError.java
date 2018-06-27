@@ -5,10 +5,10 @@ package ru.ajana.stock.view.exception;
  *
  * @author Andrey Kharintsev on 20.05.2018
  */
-public class ResponseError {
+public class ResponseError<T> {
 
   private String id;
-  private String message;
+  private T message;
 
   public String getId() {
     return id;
@@ -18,11 +18,11 @@ public class ResponseError {
     this.id = id;
   }
 
-  public String getMessage() {
+  public T getMessage() {
     return message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(T message) {
     this.message = message;
   }
 }

@@ -14,11 +14,11 @@ public class Color implements Serializable {
    * Белый цвет
    */
   private static final String WHITE = "WHITE";
-  @NotNull(message = "ru.ajana.stock.model.color.id.notnull")
+  @NotNull
   private Long id;
-  @NotNull(message = "ru.ajana.stock.model.color.name.notnull")
+  @NotNull
   private String name;
-  @NotNull(message = "ru.ajana.stock.model.color.code.notnull")
+  @NotNull
   private String code;
 
   public Long getId() {

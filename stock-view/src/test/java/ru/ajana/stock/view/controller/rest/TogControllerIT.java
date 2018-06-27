@@ -43,8 +43,8 @@ public class TogControllerIT {
   @Test
   public void testInvalidTog() {
     Tog expectedTog = ProductGenerator.createProduct();
-    //expectedTog.setName(null);
-    expectedTog.setSize(null);
+    expectedTog.setName(null);
+    //expectedTog.setSize(null);
     // Посылаем продукт методом POST
     Response response = client.target(uri)
         .path("/validate")

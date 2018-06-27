@@ -33,7 +33,6 @@ public class ValidationConfigurationContextResolver implements ContextResolver<G
   public GeneralValidator getContext(Class<?> type) {
     Configuration<?> config = Validation.byDefaultProvider().configure();
     BootstrapConfiguration bootstrapConfiguration = config.getBootstrapConfiguration();
-
     config.messageInterpolator(
         new LocaleSpecificMessageInterpolator(Validation.byDefaultProvider().configure()
             .getDefaultMessageInterpolator()));

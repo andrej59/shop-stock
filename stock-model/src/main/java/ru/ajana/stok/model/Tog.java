@@ -11,15 +11,15 @@ import org.hibernate.validator.constraints.Range;
  */
 public class Tog extends Product {
 
-  @Range(min = 42, max = 52, message = "{ru.ajana.stock.model.tog.range}")
-  @NotNull(message = "{ru.ajana.stock.model.tog.size.notnull}")
+  @Range(min = 42, max = 52)
+  @NotNull
   private Integer size;
 
-  @NotNull(message = "ru.ajana.stock.model.tog.color.notnull")
+  @NotNull
   @Valid
   private Color color;
 
-  @NotNull(message = "ru.ajana.stock.model.tog.kind.notnull")
+  @NotNull
   @Valid
   private TogKing kind;
 
