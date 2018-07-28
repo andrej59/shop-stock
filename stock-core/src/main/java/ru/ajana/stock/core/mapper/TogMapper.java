@@ -2,11 +2,11 @@ package ru.ajana.stock.core.mapper;
 
 import ru.ajana.stock.jpa.entities.ProductEntity;
 import ru.ajana.stock.jpa.entities.TogProductEntity;
-import ru.ajana.stok.model.Color;
-import ru.ajana.stok.model.ProductStatus;
-import ru.ajana.stok.model.ProductType;
-import ru.ajana.stok.model.Tog;
-import ru.ajana.stok.model.TogKing;
+import ru.ajana.stock.model.Color;
+import ru.ajana.stock.model.ProductStatus;
+import ru.ajana.stock.model.ProductType;
+import ru.ajana.stock.model.Tog;
+import ru.ajana.stock.model.TogKing;
 
 /**
  * Маппер для одежды магазина.

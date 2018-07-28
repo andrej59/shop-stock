@@ -3,7 +3,7 @@ package ru.ajana.stock.view.controller.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import org.junit.Test;
-import ru.ajana.stok.model.Tog;
+import ru.ajana.stock.model.Tog;
 
 /**
  * @author Andrey Kharintsev on 27.04.2018

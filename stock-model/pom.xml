@@ -34,10 +34,8 @@
       <version>${hibernate-validator}</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>org.jboss.resteasy</groupId>
-      <artifactId>resteasy-validator-provider-11</artifactId>
-    </dependency>
+
+
   </dependencies>
   <build>
     <plugins>

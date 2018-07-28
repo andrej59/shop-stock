@@ -1,7 +1,7 @@
 package ru.ajana.stock.core.mapper;
 
 import ru.ajana.stock.jpa.entities.nsi.SpProductStatusEntity;
-import ru.ajana.stok.model.ProductStatus;
+import ru.ajana.stock.model.ProductStatus;
 
 /**
  * Маппер статуса продукта.
@@ -18,7 +18,7 @@ public class ProductStatusMapper implements ToMapper<SpProductStatusEntity, Prod
     ProductStatus productStatus = new ProductStatus();
     productStatus.setId(entity.getId());
     productStatus.setName(entity.getName());
-    productStatus.setIdent(entity.getIdent());
+    productStatus.setIdent(entity.getCode());
     return productStatus;
   }
 }

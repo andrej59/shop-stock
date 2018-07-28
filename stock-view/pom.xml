@@ -12,6 +12,25 @@
   <packaging>war</packaging>
   <artifactId>stock-view</artifactId>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>${arquillian.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-bom</artifactId>
+        <version>${resteasy.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <!-- PROJECT -->
     <dependency>
@@ -72,13 +91,21 @@
     </dependency>
 
     <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-base</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.fasterxml.jackson.jaxrs</groupId>
       <artifactId>jackson-jaxrs-json-provider</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-jaxb-annotations</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -94,14 +121,25 @@
     </dependency>
 
     <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-core</artifactId>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
     </dependency>
+    <!--
+        <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-core</artifactId>
+        </dependency>
+
+        <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+        </dependency>
+        -->
 
     <!-- JPA -->
     <dependency>
@@ -135,11 +173,12 @@
       <scope>provided</scope>
     </dependency>
 
+
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
       <artifactId>resteasy-validator-provider-11</artifactId>
-      <scope>provided</scope>
     </dependency>
+
 
     <!-- TESTING -->
 
@@ -147,6 +186,26 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.arquillian.junit</groupId>
+      <artifactId>arquillian-junit-container</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.wildfly.arquillian</groupId>
+      <artifactId>wildfly-arquillian-container-embedded</artifactId>
+      <version>2.1.1.Final</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.shrinkwrap.resolver</groupId>
+      <artifactId>shrinkwrap-resolver-depchain</artifactId>
+      <scope>test</scope>
+      <type>pom</type>
     </dependency>
 
     <dependency>
@@ -160,15 +219,14 @@
       <artifactId>resteasy-jackson2-provider</artifactId>
       <scope>test</scope>
     </dependency>
-
-
+    <!--
     <dependency>
       <groupId>org.wildfly.core</groupId>
       <artifactId>wildfly-embedded</artifactId>
       <version>${wildfly-embedded.version}</version>
       <scope>test</scope>
     </dependency>
-
+    -->
     <dependency>
       <groupId>com.namics.oss</groupId>
       <artifactId>java-random</artifactId>
@@ -199,39 +257,25 @@
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
-          <encoding>UTF-8</encoding>
+          <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
       </plugin>
-
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
       </plugin>
-
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <argLine>-Dfile.encoding=UTF-8</argLine>
-          <!--
-          <systemPropertyVariables>
-            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-            <jboss.home>${wildfly.home}</jboss.home>
-            <module.path>${wildfly.home}/modules</module.path>
-          </systemPropertyVariables>
-          -->
         </configuration>
       </plugin>
-
       <plugin>
         <artifactId>maven-failsafe-plugin</artifactId>
         <configuration>
-          <encoding>UTF-8</encoding>
-          <!--
-          <systemPropertyVariables>
-            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-            <jboss.home>${wildfly.home}</jboss.home>
-            <module.path>${wildfly.home}/modules</module.path>
-          </systemPropertyVariables>
-          -->
+          <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
         <executions>
           <execution>

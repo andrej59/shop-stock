@@ -25,7 +25,7 @@ import javax.ws.rs.core.UriInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ajana.stock.core.service.TogService;
-import ru.ajana.stok.model.Tog;
+import ru.ajana.stock.model.Tog;
 
 /**
  * REST-контроллер одежды магазина.
@@ -58,17 +58,10 @@ public class TogController {
   }
 
   @POST
-  //@ValidateOnExecution(type = ExecutableType.ALL)
   public Response createTog(@Valid Tog tog) {
     if (tog == null) {
       throw new BadRequestException();
     }
-
-    Set<ConstraintViolation<Tog>> constraintViolations = validator.validate(tog);
-    if (constraintViolations.size() > 0) {
-      throw new ValidationException("");
-    }
-
     tog = togService.saveTog(tog);
     URI bookUri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(tog.getId())).build();
     return Response.created(bookUri).build();

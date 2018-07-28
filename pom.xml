@@ -25,6 +25,17 @@
     </developer>
   </developers>
 
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/andrej59/shop-stock/issues</url>
+  </issueManagement>
+
+  <scm>
+    <connection>scm:git:git://github.com/andrej59/shop-stock.git</connection>
+    <developerConnection>scm:git:git@github.com:andrej59/shop-stock.git</developerConnection>
+    <url>https://github.com/andrej59/shop-stock.git</url>
+  </scm>
+
   <modules>
     <module>stock-view</module>
     <module>stock-core</module>
@@ -39,7 +50,7 @@
     <jpa.version>2.1.1</jpa.version>
     <javaee.version>7.0</javaee.version>
     <resteasy.version>3.5.1.Final</resteasy.version>
-    <jackson.version>2.9.5</jackson.version>
+    <jackson.version>2.5.4</jackson.version>
     <hibernate-validator>6.0.10.Final</hibernate-validator>
 
     <eclipselink.version>2.6.4</eclipselink.version>
@@ -49,10 +60,17 @@
     <log4j.version>1.2.17</log4j.version>
     <logback.version>1.2.3</logback.version>
     <junit.version>4.12</junit.version>
+    <arquillian.version>1.4.0.Final</arquillian.version>
+
+    <!-- wildfly -->
     <wildfly-embedded.version>5.0.0.Final</wildfly-embedded.version>
+    <wildfly.version>11.0.0.Final</wildfly.version>
+    <wildfly.home>${project.build.directory}/wildfly-${wildfly.version}</wildfly.home>
 
     <!-- plugins -->
     <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+    <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+    <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
     <maven-ear-plugin.version>2.10.1</maven-ear-plugin.version>
     <maven-ejb-plugin.version>2.5.1</maven-ejb-plugin.version>
     <maven-war-plugin.version>3.1.0</maven-war-plugin.version>
@@ -63,6 +81,8 @@
     <maven-failsafe-plugin.version>2.20</maven-failsafe-plugin.version>
     <jaxb2-maven-plugin.version>2.3.1</jaxb2-maven-plugin.version>
   </properties>
+
+
   <dependencyManagement>
     <dependencies>
       <!-- JavaEE -->
@@ -131,7 +151,19 @@
 
       <dependency>
         <groupId>com.fasterxml.jackson.jaxrs</groupId>
+        <artifactId>jackson-jaxrs-base</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fasterxml.jackson.jaxrs</groupId>
         <artifactId>jackson-jaxrs-json-provider</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-jaxb-annotations</artifactId>
         <version>${jackson.version}</version>
       </dependency>
 
@@ -142,8 +174,13 @@
         <scope>provided</scope>
       </dependency>
 
-      <!-- RESTEASY -->
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>jaxrs-api</artifactId>
+        <version>3.0.12.Final</version>
+      </dependency>
 
+      <!-- RESTEASY
       <dependency>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-bom</artifactId>
@@ -152,11 +189,6 @@
         <type>pom</type>
       </dependency>
 
-      <dependency>
-        <groupId>org.jboss.resteasy</groupId>
-        <artifactId>jaxrs-api</artifactId>
-        <version>3.0.12.Final</version>
-      </dependency>
 
       <dependency>
         <groupId>org.jboss.resteasy</groupId>
@@ -164,11 +196,7 @@
         <version>${resteasy.version}</version>
       </dependency>
 
-      <dependency>
-        <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-validator-provider-11</artifactId>
-        <version>${resteasy.version}</version>
-      </dependency>
+
 
       <dependency>
         <groupId>org.jboss.resteasy</groupId>
@@ -179,6 +207,13 @@
       <dependency>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-jackson2-provider</artifactId>
+        <version>${resteasy.version}</version>
+      </dependency>
+      -->
+
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-validator-provider-11</artifactId>
         <version>${resteasy.version}</version>
       </dependency>
 
@@ -198,13 +233,7 @@
       </dependency>
       -->
 
-      <!-- LOGGING -->
 
-      <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${log4j.version}</version>
-      </dependency>
 
       <!-- JPA -->
 
@@ -228,6 +257,26 @@
         <version>${h2.version}</version>
       </dependency>
 
+      <!-- LOGGING -->
+      
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
@@ -241,6 +290,13 @@
       </dependency>
 
       <!-- TESTING -->
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>${arquillian.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
 
       <dependency>
         <groupId>junit</groupId>
@@ -282,10 +338,17 @@
           <configuration>
             <source>${java.version}</source>
             <target>${java.version}</target>
-            <encoding>UTF-8</encoding>
+            <encoding>${project.build.sourceEncoding}</encoding>
           </configuration>
         </plugin>
-
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${maven-resources-plugin.version}</version>
+          <configuration>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
         <plugin>
           <artifactId>maven-ear-plugin</artifactId>
           <version>${maven-ear-plugin.version}</version>
@@ -323,6 +386,33 @@
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${maven-dependency-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>unpack</id>
+              <phase>pre-integration-test</phase> <!-- So run before testing -->
+              <goals>
+                <goal>unpack</goal>
+              </goals>
+              <configuration>
+                <artifactItems>
+                  <artifactItem>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-dist</artifactId>
+                    <version>${wildfly.version}</version>
+                    <type>zip</type>
+                    <outputDirectory>${project.build.directory}</outputDirectory>
+                    <overWrite>false</overWrite>
+                  </artifactItem>
+                </artifactItems>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>jaxb2-maven-plugin</artifactId>
           <version>${jaxb2-maven-plugin.version}</version>
@@ -352,7 +442,12 @@
         <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
           <configuration>
-            <encoding>UTF-8</encoding>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <systemPropertyVariables>
+              <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+              <jboss.home>${wildfly.home}</jboss.home>
+              <module.path>${wildfly.home}/modules</module.path>
+            </systemPropertyVariables>
           </configuration>
           <version>${maven-failsafe-plugin.version}</version>
           <executions>

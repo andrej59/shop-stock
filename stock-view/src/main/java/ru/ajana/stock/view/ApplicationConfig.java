@@ -10,6 +10,7 @@ import javax.ws.rs.core.Application;
 import ru.ajana.stock.view.controller.rest.TogController;
 import ru.ajana.stock.view.exception.mapper.DebugValidationExceptionMapper;
 import ru.ajana.stock.view.exception.mapper.ValidationExceptionMapper;
+import ru.ajana.stock.view.exception.mapper.WebApplicationExceptionMapper;
 import ru.ajana.stock.view.locale.AcceptLanguageRequestFilter;
 
 /**
@@ -27,11 +28,9 @@ public class ApplicationConfig extends Application {
     c.add(TogController.class);
     c.add(AcceptLanguageRequestFilter.class);
     c.add(ValidationConfigurationContextResolver.class);
+    //c.add(WebApplicationExceptionMapper.class);
     c.add(ValidationExceptionMapper.class);
     //c.add(GeneralValidatorCDI.class);
-    //c.add(ValidationExceptionMapper.class);
-    //c.add(WebApplicationExceptionMapper.class);
-    //c.add(ValidationExceptionMapper.class);
     //c.add(MOXyJsonProvider.class);
     classes = Collections.unmodifiableSet(c);
   }

@@ -1,7 +1,7 @@
 package ru.ajana.stock.core.mapper;
 
 import ru.ajana.stock.jpa.entities.nsi.SpTogKindEntity;
-import ru.ajana.stok.model.TogKing;
+import ru.ajana.stock.model.TogKing;
 
 /**
  * Маппер вида одежды магазина.

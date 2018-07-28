@@ -1,7 +1,7 @@
 package ru.ajana.stock.core.mapper;
 
 import ru.ajana.stock.jpa.entities.nsi.SpColorEntity;
-import ru.ajana.stok.model.Color;
+import ru.ajana.stock.model.Color;
 
 /**
  * Маппнг для справочника цвета.
@@ -18,7 +18,7 @@ public class ColorMapper implements ToMapper<SpColorEntity, Color> {
     Color color = new Color();
     color.setId(entity.getId());
     color.setName(entity.getName());
-    color.setCode(entity.getIdent());
+    color.setCode(entity.getCode());
     return color;
   }
 }

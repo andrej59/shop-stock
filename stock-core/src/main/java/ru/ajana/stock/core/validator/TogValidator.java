@@ -1,6 +1,6 @@
 package ru.ajana.stock.core.validator;
 
-import ru.ajana.stok.model.Tog;
+import ru.ajana.stock.model.Tog;
 
 /**
  * @author Andrey Kharintsev on 25.05.2018

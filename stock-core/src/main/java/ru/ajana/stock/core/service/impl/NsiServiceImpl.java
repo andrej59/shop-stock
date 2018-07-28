@@ -15,10 +15,10 @@ import ru.ajana.stock.jpa.entities.nsi.SpColorEntity;
 import ru.ajana.stock.jpa.entities.nsi.SpProductStatusEntity;
 import ru.ajana.stock.jpa.entities.nsi.SpProductTypeEntity;
 import ru.ajana.stock.jpa.entities.nsi.SpTogKindEntity;
-import ru.ajana.stok.model.Color;
-import ru.ajana.stok.model.ProductStatus;
-import ru.ajana.stok.model.ProductType;
-import ru.ajana.stok.model.TogKing;
+import ru.ajana.stock.model.Color;
+import ru.ajana.stock.model.ProductStatus;
+import ru.ajana.stock.model.ProductType;
+import ru.ajana.stock.model.TogKing;
 
 
 /**

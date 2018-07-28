@@ -1,4 +1,4 @@
-package ru.ajana.stok.model;
+package ru.ajana.stock.model;
 
 /**
  * Перечисление статуса продукта.

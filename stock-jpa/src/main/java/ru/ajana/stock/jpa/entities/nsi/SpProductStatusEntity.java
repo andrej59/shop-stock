@@ -23,7 +23,7 @@ public class SpProductStatusEntity implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String ident;
+  private String code;
 
   private String name;
 
@@ -42,12 +42,12 @@ public class SpProductStatusEntity implements Serializable {
     this.id = id;
   }
 
-  public String getIdent() {
-    return this.ident;
+  public String getCode() {
+    return this.code;
   }
 
-  public void setIdent(String ident) {
-    this.ident = ident;
+  public void setCode(String ident) {
+    this.code = ident;
   }
 
   public String getName() {
@@ -80,7 +80,7 @@ public class SpProductStatusEntity implements Serializable {
     if (id != that.id) {
       return false;
     }
-    if (ident != null ? !ident.equals(that.ident) : that.ident != null) {
+    if (code != null ? !code.equals(that.code) : that.code != null) {
       return false;
     }
     if (name != null ? !name.equals(that.name) : that.name != null) {
@@ -93,7 +93,7 @@ public class SpProductStatusEntity implements Serializable {
   @Override
   public int hashCode() {
     int result = (int) (id ^ (id >>> 32));
-    result = 31 * result + (ident != null ? ident.hashCode() : 0);
+    result = 31 * result + (code != null ? code.hashCode() : 0);
     result = 31 * result + (name != null ? name.hashCode() : 0);
     //result = 31 * result + (products != null ? products.hashCode() : 0);
     return result;

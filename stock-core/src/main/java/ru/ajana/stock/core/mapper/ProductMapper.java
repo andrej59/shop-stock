@@ -1,7 +1,7 @@
 package ru.ajana.stock.core.mapper;
 
 import ru.ajana.stock.jpa.entities.ProductEntity;
-import ru.ajana.stok.model.Product;
+import ru.ajana.stock.model.Product;
 
 /**
  * Маппер продукта магазина.

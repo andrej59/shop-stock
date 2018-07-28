@@ -2,6 +2,7 @@ package ru.ajana.stock.dao;
 
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.transaction.Transactional;
 
 /**
  * DAO-компонент справочников магазина.
@@ -20,7 +21,6 @@ public class NsiDao extends AbstractDao {
       return null;
     }
   }
-
   public <T> T findById(Class<T> clazz, Long id) {
     return em.find(clazz, id);
   }

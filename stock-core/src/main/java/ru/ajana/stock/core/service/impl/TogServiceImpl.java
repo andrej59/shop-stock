@@ -19,8 +19,8 @@ import ru.ajana.stock.jpa.entities.nsi.SpColorEntity;
 import ru.ajana.stock.jpa.entities.nsi.SpProductStatusEntity;
 import ru.ajana.stock.jpa.entities.nsi.SpProductTypeEntity;
 import ru.ajana.stock.jpa.entities.nsi.SpTogKindEntity;
-import ru.ajana.stok.model.ProductStatus;
-import ru.ajana.stok.model.Tog;
+import ru.ajana.stock.model.ProductStatus;
+import ru.ajana.stock.model.Tog;
 
 /**
  * Реализация EJB-сервис одежды.

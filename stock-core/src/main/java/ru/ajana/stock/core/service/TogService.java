@@ -2,8 +2,8 @@ package ru.ajana.stock.core.service;
 
 import java.util.List;
 import javax.ejb.Local;
-import ru.ajana.stok.model.ProductStatus;
-import ru.ajana.stok.model.Tog;
+import ru.ajana.stock.model.ProductStatus;
+import ru.ajana.stock.model.Tog;
 
 /**
  * Интерфейс EJB-сервиса для работы с одеждой.

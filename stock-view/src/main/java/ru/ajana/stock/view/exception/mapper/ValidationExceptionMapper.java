@@ -16,6 +16,8 @@ import javax.ws.rs.ext.Provider;
 import org.jboss.resteasy.api.validation.ResteasyConstraintViolation;
 import org.jboss.resteasy.api.validation.ResteasyViolationException;
 import org.jboss.resteasy.api.validation.Validation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.ajana.stock.view.exception.ResponseError;
 
 /**
@@ -26,8 +28,11 @@ import ru.ajana.stock.view.exception.ResponseError;
 @Provider
 public class ValidationExceptionMapper implements ExceptionMapper<ValidationException> {
 
+  private static final Logger LOG = LoggerFactory.getLogger(ValidationExceptionMapper.class);
+
   @Override
   public Response toResponse(ValidationException exception) {
+    LOG.error("ValidationExceptionMapper", exception);
     if (exception instanceof ConstraintDefinitionException) {
       return buildResponse(unwrapException(exception), MediaType.TEXT_PLAIN,
           Status.INTERNAL_SERVER_ERROR);

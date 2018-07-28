@@ -2,10 +2,10 @@ package ru.ajana.stock.core.service;
 
 import java.util.List;
 import javax.ejb.Local;
-import ru.ajana.stok.model.Color;
-import ru.ajana.stok.model.ProductStatus;
-import ru.ajana.stok.model.ProductType;
-import ru.ajana.stok.model.TogKing;
+import ru.ajana.stock.model.Color;
+import ru.ajana.stock.model.ProductStatus;
+import ru.ajana.stock.model.ProductType;
+import ru.ajana.stock.model.TogKing;
 
 /**
  * Интерфейс сервиса для работы со справочниками.

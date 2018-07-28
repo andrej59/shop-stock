@@ -26,7 +26,7 @@ public class SpColorEntity implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String ident;
+  private String code;
 
   private String name;
 
@@ -45,12 +45,12 @@ public class SpColorEntity implements Serializable {
     this.id = id;
   }
 
-  public String getIdent() {
-    return this.ident;
+  public String getCode() {
+    return this.code;
   }
 
-  public void setIdent(String ident) {
-    this.ident = ident;
+  public void setCode(String ident) {
+    this.code = ident;
   }
 
   public String getName() {
@@ -83,7 +83,7 @@ public class SpColorEntity implements Serializable {
     if (id != spColor.id) {
       return false;
     }
-    if (ident != null ? !ident.equals(spColor.ident) : spColor.ident != null) {
+    if (code != null ? !code.equals(spColor.code) : spColor.code != null) {
       return false;
     }
     if (name != null ? !name.equals(spColor.name) : spColor.name != null) {
@@ -96,7 +96,7 @@ public class SpColorEntity implements Serializable {
   @Override
   public int hashCode() {
     int result = (int) (id ^ (id >>> 32));
-    result = 31 * result + (ident != null ? ident.hashCode() : 0);
+    result = 31 * result + (code != null ? code.hashCode() : 0);
     result = 31 * result + (name != null ? name.hashCode() : 0);
     result = 31 * result + (togProducts != null ? togProducts.hashCode() : 0);
     return result;

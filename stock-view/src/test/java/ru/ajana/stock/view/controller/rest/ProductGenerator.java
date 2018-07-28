@@ -1,15 +1,15 @@
 package ru.ajana.stock.view.controller.rest;
 
 import java.math.BigDecimal;
-import ru.ajana.stok.model.Color;
-import ru.ajana.stok.model.ColorEnums;
-import ru.ajana.stok.model.ProductStatus;
-import ru.ajana.stok.model.ProductStatusEnums;
-import ru.ajana.stok.model.ProductType;
-import ru.ajana.stok.model.ProductTypeEnums;
-import ru.ajana.stok.model.Tog;
-import ru.ajana.stok.model.TogKing;
-import ru.ajana.stok.model.TogKingEnums;
+import ru.ajana.stock.model.Color;
+import ru.ajana.stock.model.ColorEnums;
+import ru.ajana.stock.model.ProductStatus;
+import ru.ajana.stock.model.ProductStatusEnums;
+import ru.ajana.stock.model.ProductType;
+import ru.ajana.stock.model.ProductTypeEnums;
+import ru.ajana.stock.model.Tog;
+import ru.ajana.stock.model.TogKing;
+import ru.ajana.stock.model.TogKingEnums;
 
 /**
  * Генератор объектов продукта для тестирования.
