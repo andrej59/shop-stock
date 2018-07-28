@@ -28,7 +28,7 @@ public class TogControllerIT {
 
   private static final Logger LOG = LoggerFactory.getLogger(TogControllerIT.class);
   private static URI uri = UriBuilder.
-      fromUri("http://localhost/stock-view/service/rest/togs").port(8080).build();
+      fromUri("http://localhost/stock-view/api/v1/togs").port(8080).build();
   private static Client client = ClientBuilder.newBuilder()
       .register(JacksonJsonProvider.class)
       .build();

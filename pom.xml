@@ -5,8 +5,25 @@
   <groupId>ru.ajana.stock</groupId>
   <artifactId>shop-stock</artifactId>
   <version>1.0</version>
-
   <packaging>pom</packaging>
+
+  <name>Shop Stock</name>
+  <description>There is a store and a warehouse. And there are clothes, either in the store or in
+    the warehouse.
+  </description>
+  <url>https://github.com/andrej59/shop-stock.git</url>
+
+  <developers>
+    <developer>
+      <id>kharintsev</id>
+      <name>Andrey Kharintsev</name>
+      <url>http://www.ajana.ru/</url>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>+05</timezone>
+    </developer>
+  </developers>
 
   <modules>
     <module>stock-view</module>

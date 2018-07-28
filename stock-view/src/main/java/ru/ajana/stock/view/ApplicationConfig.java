@@ -17,7 +17,7 @@ import ru.ajana.stock.view.locale.AcceptLanguageRequestFilter;
  *
  * @author Andrey Kharintsev on 13.04.2018
  */
-@ApplicationPath("service/rest")
+@ApplicationPath("api/v1")
 public class ApplicationConfig extends Application {
 
   private final Set<Class<?>> classes;
